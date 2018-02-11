@@ -11,9 +11,8 @@ print
 
 found_results = []
 for country_record in data:
-	for dial_num in country_record:
-		if user_input == country_record[dial_num]:
-			found_results.append(country_record)
+	if user_input == country_record['dial_code']:
+		found_results.append(country_record)
 
 if not found_results:
 	print "No matches."
