@@ -1,5 +1,8 @@
 import json
+from beautifultable import BeautifulTable
+
 data = json.load(open('data.json'))
+table = BeautifulTable()
 
 user_input = input("Enter country code: ")
 user_input = "+" + str(user_input)
@@ -18,7 +21,6 @@ else:
 	print len(found_results), "result(s) found."
 	print
 	for result in found_results:
-		print "Name: " + result["name"]
-		print "Code: " + result["code"]
-		print "Dial Number: " + result["dial_code"]
-		print
+		table.column_headers = ["Name", "Code", "Dial"]
+		table.append_row([result["name"], result["code"], result["dial_code"],])
+	print table
